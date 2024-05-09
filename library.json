@@ -1,5 +1,5 @@
 {
-  "name": "DS2408 Library",
+  "name": "DS2408-Library",
   "keywords": "DS2408, OneWire, IO",
   "description": "A library for interfacing with the DS2408 1-Wire digital I/O chip.",
   "authors": {
