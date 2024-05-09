@@ -19,7 +19,6 @@ private:
     byte addr[8];
     bool deviceFound;
     void writeDevice(uint8_t state);
-    bool checkDevicePresent();
 };
 
 #endif
