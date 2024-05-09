@@ -1,0 +1,17 @@
+{
+  "name": "DS2408 Library",
+  "keywords": "DS2408, OneWire, IO",
+  "description": "A library for interfacing with the DS2408 1-Wire digital I/O chip.",
+  "authors": {
+    "name": "Gianluca Maccari",
+    "email": "brivad@gmail.com",
+    "url": "https://github.com/brivad"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/brivad/DS2408-Library"
+  },
+  "version": "1.0.0",
+  "frameworks": "arduino",
+  "platforms": "espressif32"
+}
