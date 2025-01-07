@@ -9,6 +9,7 @@ DS2408::DS2408(uint8_t pin) : net(pin), deviceFound(false)
 
 void DS2408::begin()
 {
+    resetDevice();
     net.reset_search();
     deviceFound = false;
 
@@ -19,6 +20,7 @@ void DS2408::begin()
             deviceFound = true;
             Serial.print("Found DS2408 ");
             printDeviceAddress();
+            configureLatch();
             break;
         }
     }
@@ -96,4 +98,22 @@ void DS2408::writeDevice(uint8_t state)
     {
         Serial.println("Failed to confirm write in writeDevice()");
     }
+}
+
+void DS2408::resetDevice() {
+    net.reset();
+    net.select(addr);
+    net.write(0xC3);  // Command to reset the DS2408
+    delay(10);        // Wait for reset completion
+}
+
+void DS2408::configureLatch() {
+    uint8_t buf[3];
+    buf[0] = 0xCC;    // Channel Access Write command
+    buf[1] = 0x0F;    // Set all output latches to 1
+    buf[2] = 0x00;    // Set all pins as outputs
+
+    net.reset();
+    net.select(addr);
+    net.write_bytes(buf, 3);
 }

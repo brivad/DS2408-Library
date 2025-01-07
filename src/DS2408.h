@@ -13,6 +13,8 @@ public:
     void writePin(uint8_t pin, bool state);
     void printDeviceAddress();
     uint8_t readDevice();
+    void resetDevice();
+    void configureLatch();
 
 private:
     OneWire net;
